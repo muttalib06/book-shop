@@ -1,12 +1,12 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToStoreBD } from "../../Utility/Storage";
 
 const BookDetail = () => {
   const id = useParams();
   const bookId = Number(id.id);
   const bookData = useLoaderData();
   const singleBook = bookData.find((book) => book.bookId === bookId);
-  console.log(singleBook);
   const {
     bookName,
     image,
@@ -29,8 +29,10 @@ const BookDetail = () => {
       <div className="flex-3 ml-8">
         <div>
           <h2 className="font-bold text-4xl playfair-display ">{bookName}</h2>
-          <p className="font-medium text-lg work-sans text-[#131313]/80  border-b border-gray-300  py-3"> By:   
-            { author}
+          <p className="font-medium text-lg work-sans text-[#131313]/80  border-b border-gray-300  py-3">
+            {" "}
+            By:
+            {author}
           </p>
           <p className="font-medium  work-sans text-[#131313]/80  border-b border-gray-300  py-3">
             {category}
@@ -42,7 +44,7 @@ const BookDetail = () => {
             {" "}
             <span className="text-black font-medium">Review:</span> {review}
           </p>
-          <div className="flex gap-10 items-center">
+          <div className="flex gap-10 items-center border-b border-gray-300 pb-2">
             <p className="font-bold">Tags</p>
 
             <div className="space-x-2">
@@ -77,7 +79,9 @@ const BookDetail = () => {
           </div>
         </div>
         <div className="space-x-2">
-          <button className="btn ">Read</button>
+          <button onClick={() => addToStoreBD(bookId)} className="btn ">
+            Read
+          </button>
           <button className="btn bg-[#50B1C9]">Wishlist</button>
         </div>
       </div>
