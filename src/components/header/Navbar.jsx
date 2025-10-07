@@ -7,7 +7,7 @@ const Navbar = () => {
       <h1 className="text-3xl font-bold">Book Vibe</h1>
       <ul className="flex justify-between items-center gap-6 text-[#131313] text-lg font-normal">
         <Link to="/">Home</Link>
-        <Link to="/listedBook">Listed Books</Link>
+        <Link to="/readBook">Read list</Link>
         <Link to="/">Pages to Read</Link>
       </ul>
       <div className="space-x-3">
